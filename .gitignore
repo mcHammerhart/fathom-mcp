@@ -43,6 +43,9 @@ ENV/
 htmlcov/
 .tox/
 
+# Local Claude Desktop config
+claude_desktop_config.json
+
 # MacOS
 .DS_Store
 

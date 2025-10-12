@@ -4,14 +4,14 @@
       "command": "uv",
       "args": [
         "--directory",
-        "/Users/alvinycheung/dotfun/fathom-mcp",
+        "/path/to/fathom-mcp",
         "run",
         "fastmcp",
         "run",
         "server.py"
       ],
       "env": {
-        "FATHOM_API_KEY": "nTlP6ScS49gbcXzgH478xA.srG0O6lbbAVpFGHKfSXsXJrno-O9ph-oLwld3aoqo4s"
+        "FATHOM_API_KEY": "your_api_key_here"
       }
     }
   }
