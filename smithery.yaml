@@ -1,6 +1,8 @@
 # Smithery configuration file
 # https://smithery.ai/docs/config#smitheryyaml
 
+runtime: "python"
+
 startCommand:
   type: stdio
   configSchema:
