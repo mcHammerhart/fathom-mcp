@@ -20,16 +20,22 @@ mcp = FastMCP("Fathom AI")
 
 # Constants
 BASE_URL = "https://api.fathom.ai/external/v1"
-API_KEY = os.getenv("FATHOM_API_KEY")
 
-if not API_KEY:
-    raise ValueError("FATHOM_API_KEY environment variable is required")
+
+def get_api_key() -> str:
+    """Fetch the Fathom API key from the environment."""
+    api_key = os.getenv("FATHOM_API_KEY", "").strip()
+    if not api_key:
+        raise ToolError(
+            "FATHOM_API_KEY environment variable is required before calling Fathom tools."
+        )
+    return api_key
 
 
 def get_headers() -> dict[str, str]:
     """Get headers for API requests."""
     return {
-        "X-Api-Key": API_KEY,
+        "X-Api-Key": get_api_key(),
         "Content-Type": "application/json",
     }
 
