@@ -13,7 +13,7 @@ startCommand:
         description: Your Fathom API key. Get it from https://app.fathom.video/settings/integrations
   commandFunction: |-
     config => ({
-      command: 'uvx',
-      args: ['--from', 'fastmcp', 'fastmcp', 'run', 'server.py'],
+      command: 'fastmcp',
+      args: ['run', 'server.py'],
       env: { FATHOM_API_KEY: config.fathomApiKey }
     })
