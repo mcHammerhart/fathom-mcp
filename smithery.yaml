@@ -1,4 +1,4 @@
-# Smithery configuration for Fathom AI MCP Server
+# Smithery configuration file
 # https://smithery.ai/docs/config#smitheryyaml
 
 startCommand:
@@ -13,7 +13,7 @@ startCommand:
         description: Your Fathom API key. Get it from https://app.fathom.video/settings/integrations
   commandFunction: |-
     config => ({
-      command: 'uv',
-      args: ['run', 'fastmcp', 'run', 'server.py'],
+      command: 'uvx',
+      args: ['--from', 'fastmcp', 'fastmcp', 'run', 'server.py'],
       env: { FATHOM_API_KEY: config.fathomApiKey }
     })
