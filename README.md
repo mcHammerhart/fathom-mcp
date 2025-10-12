@@ -1,6 +1,24 @@
 # Fathom AI MCP Server
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![FastMCP](https://img.shields.io/badge/FastMCP-2.0-green.svg)](https://gofastmcp.com/)
+
 A [Model Context Protocol](https://modelcontextprotocol.io) (MCP) server for interacting with the [Fathom AI API](https://developers.fathom.ai). This server provides tools for accessing meeting recordings, summaries, transcripts, teams, and webhooks.
+
+## Quick Start
+
+```bash
+# Install via Smithery (coming soon)
+smithery install @dot-fun/fathom-mcp
+
+# Or clone and run locally
+git clone https://github.com/Dot-Fun/fathom-mcp.git
+cd fathom-mcp
+uv pip install fastmcp httpx pydantic
+export FATHOM_API_KEY="your_api_key_here"
+fastmcp run server.py
+```
 
 ## Features
 
@@ -30,7 +48,7 @@ The easiest way to use this MCP server is through [Smithery](https://smithery.ai
 npm install -g @smithery/cli
 
 # Install the Fathom MCP server
-smithery install fathom-mcp-server
+smithery install @dot-fun/fathom-mcp
 ```
 
 You'll be prompted to enter your Fathom API key during installation.
@@ -249,9 +267,23 @@ ruff format .
 
 ### Testing
 
+The server has been tested with real Fathom API data. See [TEST_RESULTS.md](./TEST_RESULTS.md) for detailed test results.
+
+To test manually:
+
 ```bash
-# Run tests (if test suite is added)
-pytest
+# Set your API key
+export FATHOM_API_KEY="your_api_key_here"
+
+# Test server loads
+python -c "from server import mcp; print('✓ Server ready')"
+
+# Test API connectivity
+python -c "
+import asyncio
+from server import make_request
+asyncio.run(make_request('GET', '/meetings'))
+"
 ```
 
 ## API Documentation
@@ -270,6 +302,14 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## Support
 
-For issues with this MCP server, please open an issue on GitHub.
+- **Issues**: [GitHub Issues](https://github.com/Dot-Fun/fathom-mcp/issues)
+- **Fathom API**: [Fathom Support](https://fathom.video/support)
+- **MCP Protocol**: [MCP Documentation](https://modelcontextprotocol.io)
 
-For Fathom API issues, contact [Fathom support](https://fathom.video/support).
+## Acknowledgments
+
+Built with [FastMCP](https://gofastmcp.com/) - The fast, Pythonic way to build MCP servers.
+
+## Repository
+
+**GitHub**: [https://github.com/Dot-Fun/fathom-mcp](https://github.com/Dot-Fun/fathom-mcp)
