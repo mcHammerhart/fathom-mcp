@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "fathom": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/Users/alvinycheung/dotfun/fathom-mcp",
+        "run",
+        "fastmcp",
+        "run",
+        "server.py"
+      ],
+      "env": {
+        "FATHOM_API_KEY": "nTlP6ScS49gbcXzgH478xA.srG0O6lbbAVpFGHKfSXsXJrno-O9ph-oLwld3aoqo4s"
+      }
+    }
+  }
+}

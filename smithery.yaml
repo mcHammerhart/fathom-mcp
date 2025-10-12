@@ -1,0 +1,27 @@
+# Smithery configuration for Fathom AI MCP Server
+# For deployment to smithery.ai
+
+startCommand:
+  type: stdio
+
+  # Configuration schema defines what config options users can provide
+  configSchema:
+    type: object
+    required:
+      - fathomApiKey
+    properties:
+      fathomApiKey:
+        type: string
+        description: "Your Fathom API key. Get it from https://app.fathom.video/settings/integrations"
+
+  # Example configuration to help users understand the format
+  exampleConfig:
+    fathomApiKey: "your_api_key_here"
+
+  # Command function that generates the CLI command to start the server
+  commandFunction: >
+    config => ({
+      command: 'uv',
+      args: ['run', 'fastmcp', 'run', 'server.py'],
+      env: { FATHOM_API_KEY: config.fathomApiKey }
+    })
