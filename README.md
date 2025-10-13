@@ -9,10 +9,6 @@ A [Model Context Protocol](https://modelcontextprotocol.io) (MCP) server for int
 ## Quick Start
 
 ```bash
-# Install via Smithery (coming soon)
-smithery install @dot-fun/fathom-mcp
-
-# Or clone and run locally
 git clone https://github.com/Dot-Fun/fathom-mcp.git
 cd fathom-mcp
 uv pip install fastmcp httpx pydantic
@@ -38,22 +34,6 @@ fastmcp run server.py
 - **fathom://api/rate-limits**: Rate limiting information and best practices
 
 ## Installation
-
-### Option 1: Install from Smithery (Recommended)
-
-The easiest way to use this MCP server is through [Smithery](https://smithery.ai):
-
-```bash
-# Install the Smithery CLI
-npm install -g @smithery/cli
-
-# Install the Fathom MCP server
-smithery install @dot-fun/fathom-mcp
-```
-
-You'll be prompted to enter your Fathom API key during installation.
-
-### Option 2: Manual Installation
 
 1. Clone this repository or copy the files to your local machine
 
@@ -100,12 +80,6 @@ if __name__ == "__main__":
 ```
 
 ### Integrating with Claude Desktop
-
-#### If installed via Smithery
-
-Smithery automatically configures Claude Desktop for you. Just restart Claude Desktop after installation.
-
-#### If installed manually
 
 Add to your Claude Desktop configuration (`claude_desktop_config.json`):
 
@@ -205,32 +179,6 @@ The server handles common API errors:
 - **404 Not Found**: Resource doesn't exist
 - **429 Rate Limited**: Too many requests (includes reset time)
 
-## Deployment
-
-### Deploy to Smithery
-
-To deploy your own version to Smithery:
-
-1. Fork this repository to your GitHub account
-
-2. Update `package.json` with your repository URL
-
-3. Visit [Smithery](https://smithery.ai) and click "Deploy"
-
-4. Select your forked repository
-
-5. Smithery will automatically detect the `smithery.yaml` configuration and deploy
-
-Alternatively, use the Smithery CLI:
-
-```bash
-# Login to Smithery
-smithery login
-
-# Deploy from the project directory
-smithery deploy .
-```
-
 ## Development
 
 ### Project Structure
@@ -239,7 +187,6 @@ smithery deploy .
 fathom-mcp/
 ├── server.py           # Main MCP server implementation
 ├── pyproject.toml      # Project configuration and dependencies
-├── smithery.yaml       # Smithery deployment configuration
 ├── Dockerfile          # Container configuration for deployment
 ├── package.json        # Package metadata
 ├── README.md           # This file

@@ -51,3 +51,6 @@ claude_desktop_config.json
 
 # Logs
 *.log
+
+# Blog drafts
+/blog/
