@@ -55,6 +55,8 @@ Create a `.env` file in the project root:
 FATHOM_API_KEY=your_api_key_here
 ```
 
+The server auto-loads `.env` for local usage.
+
 Get your API key from the [Fathom settings page](https://app.fathom.video/settings/integrations).
 
 ## Usage
