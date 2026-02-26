@@ -81,23 +81,7 @@ if __name__ == "__main__":
     mcp.run(transport="http", host="0.0.0.0", port=8000)
 ```
 
-### Integrating with Codex (recommended)
-
-Add this block to your Codex config (`~/.codex/config.toml`):
-
-```toml
-[mcp_servers.fathom]
-command = "uv"
-args = ["--directory", "/path/to/fathom-mcp", "run", "fastmcp", "run", "server.py"]
-```
-
-Then restart Codex (or reload MCP servers) and verify:
-
-```bash
-codex mcp list
-```
-
-### Integrating with Claude Desktop (alternative)
+### Integrating with Claude Desktop
 
 Add to your Claude Desktop configuration (`claude_desktop_config.json`):
 
@@ -120,6 +104,22 @@ Add to your Claude Desktop configuration (`claude_desktop_config.json`):
     }
   }
 }
+```
+
+### Integrating with Codex (alternative)
+
+Add this block to your Codex config (`~/.codex/config.toml`):
+
+```toml
+[mcp_servers.fathom]
+command = "uv"
+args = ["--directory", "/path/to/fathom-mcp", "run", "fastmcp", "run", "server.py"]
+```
+
+Then restart Codex (or reload MCP servers) and verify:
+
+```bash
+codex mcp list
 ```
 
 ## API Reference
