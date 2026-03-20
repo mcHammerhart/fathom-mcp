@@ -11,9 +11,13 @@ from typing import Any, Optional
 from datetime import datetime
 
 import httpx
+from dotenv import load_dotenv
 from fastmcp import FastMCP
 from fastmcp.exceptions import ToolError
 from pydantic import Field
+
+# Load local .env values for local dev/CLI usage.
+load_dotenv()
 
 # Initialize FastMCP server
 mcp = FastMCP("Fathom AI")

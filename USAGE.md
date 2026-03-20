@@ -4,11 +4,11 @@
 
 ### 1. Installation
 
-The dependencies are already installed in your virtual environment. To verify:
+Install dependencies:
 
 ```bash
-source /Users/alvinycheung/.venv/bin/activate
-python -c "from server import mcp; print('Server ready!')"
+uv sync
+uv run python -c "from server import mcp; print('Server ready!')"
 ```
 
 ### 2. Running the Server
@@ -16,14 +16,12 @@ python -c "from server import mcp; print('Server ready!')"
 #### Option A: Direct Python Execution
 
 ```bash
-export FATHOM_API_KEY="your_api_key_here"
 python server.py
 ```
 
 #### Option B: Using fastmcp CLI
 
 ```bash
-export FATHOM_API_KEY="your_api_key_here"
 fastmcp run server.py
 ```
 
@@ -32,6 +30,8 @@ fastmcp run server.py
 ```bash
 uv run --with fastmcp fastmcp run server.py
 ```
+
+If you created a `.env` file with `FATHOM_API_KEY=...`, it is auto-loaded by `server.py`.
 
 ### 3. Claude Desktop Integration
 
@@ -50,7 +50,7 @@ Add this configuration to your Claude Desktop config file:
       "command": "uv",
       "args": [
         "--directory",
-        "/Users/alvinycheung/dotfun/fathom-mcp",
+        "/path/to/fathom-mcp",
         "run",
         "fastmcp",
         "run",
