@@ -55,6 +55,8 @@ Create a `.env` file in the project root:
 FATHOM_API_KEY=your_api_key_here
 ```
 
+The server auto-loads `.env` for local usage.
+
 Get your API key from the [Fathom settings page](https://app.fathom.video/settings/integrations).
 
 ## Usage
@@ -102,6 +104,22 @@ Add to your Claude Desktop configuration (`claude_desktop_config.json`):
     }
   }
 }
+```
+
+### Integrating with Codex (alternative)
+
+Add this block to your Codex config (`~/.codex/config.toml`):
+
+```toml
+[mcp_servers.fathom]
+command = "uv"
+args = ["--directory", "/path/to/fathom-mcp", "run", "fastmcp", "run", "server.py"]
+```
+
+Then restart Codex (or reload MCP servers) and verify:
+
+```bash
+codex mcp list
 ```
 
 ## API Reference
